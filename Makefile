@@ -7,7 +7,7 @@ run-agent:
 	java -jar haystack-agent-$(haystack_agent_version).jar --config-provider file --file-path ./config.properties
 
 clean:
-	docker-compose -f docker-compose-kafka.yml stop
+	docker ps -q | xargs docker rm -f
 
 run:
 	go run main.go
